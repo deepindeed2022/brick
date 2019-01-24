@@ -1,0 +1,15 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
+
+PROJECT(protobuf-download NONE)
+
+INCLUDE(ExternalProject)
+ExternalProject_Add(protobuf
+	GIT_REPOSITORY https://github.com/protocolbuffers/protobuf.git
+	GIT_TAG master
+	SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/protobuf"
+	BINARY_DIR "${CONFU_DEPENDENCIES_BINARY_DIR}/protobuf"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND ""
+	INSTALL_COMMAND ""
+	TEST_COMMAND ""
+)
