@@ -1,0 +1,16 @@
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
+
+PROJECT(zlib-download NONE)
+
+INCLUDE(ExternalProject)
+ExternalProject_Add(zlib
+	URL https://jaist.dl.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz
+	URL_HASH SHA256=c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+	SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/zlib"
+	BINARY_DIR "${CONFU_DEPENDENCIES_BINARY_DIR}/zlib"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND ""
+	INSTALL_COMMAND ""
+	TEST_COMMAND ""
+)

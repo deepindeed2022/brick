@@ -1,0 +1,54 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
+
+# ---[ Project
+PROJECT(libsfordev C CXX)
+
+# ---[ Options.
+SET(LIBSFORDEV_LIBRARY_TYPE "default" CACHE STRING "Type of library (shared, static, or default) to build")
+SET_PROPERTY(CACHE LIBSFORDEV_LIBRARY_TYPE PROPERTY STRINGS default static shared)
+OPTION(LIBSFORDEV_BUILD_TESTS "Build libsfordev unit tests" ON)
+
+# ---[ CMake options
+IF(LIBSFORDEV_BUILD_TESTS)
+    ENABLE_TESTING()
+ENDIF()
+
+MACRO(LIBSFORDEV_TARGET_ENABLE_C99 target)
+    IF(${CMAKE_VERSION} VERSION_LESS "3.1")
+        IF(NOT MSVC)
+            TARGET_COMPILE_OPTIONS(${target} PRIVATE -std=c99)
+        ENDIF()
+    ELSE()
+        SET_TARGET_PROPERTIES(${target} PROPERTIES
+            C_STANDARD 99
+            C_EXTENSIONS NO)
+        ENDIF()
+ENDMACRO()
+
+# ---[ Download deps
+SET(CONFU_DEPENDENCIES_SOURCE_DIR ${CMAKE_SOURCE_DIR}/deps 
+    CACHE PATH "Confu-style dependencies source directory")
+
+SET(CONFU_DEPENDENCIES_BINARY_DIR ${CMAKE_BINARY_DIR}/deps
+    CACHE PATH "Confu-style dependencies binary directory")
+
+IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED GOOGLETEST_SOURCE_DIR)
+    MESSAGE(STATUS "Downloading Google Test to ${CONFU_DEPENDENCIES_SOURCE_DIR}/googletest (define GOOGLETEST_SOURCE_DIR to avoid it)")
+    CONFIGURE_FILE(cmake/DownloadGoogleTest.cmake "${CONFU_DEPENDENCIES_BINARY_DIR}/googletest-download/CMakeLists.txt")
+    EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+    WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/googletest-download")
+    EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" --build .
+    WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/googletest-download")
+    SET(GOOGLETEST_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/googletest" CACHE STRING "Google Test source directory")
+ENDIF() 
+
+
+IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED ZLIB_SOURCE_DIR)
+    MESSAGE(STATUS "Downloading Zlib to ${CONFU_DEPENDENCIES_SOURCE_DIR}/zlib (define ZLIB_SOURCE_DIR to avoid it)")
+    CONFIGURE_FILE(cmake/DownloadZlib.cmake "${CONFU_DEPENDENCIES_BINARY_DIR}/zlib-download/CMakeLists.txt")
+    EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+    WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/zlib-download")
+    EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" --build .
+    WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/zlib-download")
+    SET(GOOGLETEST_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/zlib" CACHE STRING "Zlib source directory")
+ENDIF() 
