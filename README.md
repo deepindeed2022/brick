@@ -17,3 +17,7 @@ Some useful libs for developer
 
 ```cpp
 ```
+
+## bearssl
+BearSSL is an implementation of the SSL/TLS protocol (RFC 5246) written in C. 
+https://www.bearssl.org/index.html
