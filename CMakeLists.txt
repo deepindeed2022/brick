@@ -89,9 +89,11 @@ ENDIF()
 # test zlib
 INCLUDE_DIRECTORIES(${ZLIB_SOURCE_DIR})
 LINK_LIBRARIES(z)
-FILE(GLOB samples ${CMAKE_SOURCE_DIR}/samples/*.cpp)
-FOREACH (sample ${samples})
-	STRING(REGEX MATCH "[^/]+$" zlib_sample_file ${sample})
-	STRING(REPLACE ".cpp" "" zlib_sample_basename ${zlib_sample_file})
-	ADD_EXECUTABLE(test_${zlib_sample_basename} ${sample})
-ENDFOREACH()
+
+ADD_EXECUTABLE(test_sample_zlib ${CMAKE_SOURCE_DIR}/samples/sample_zlib.cpp)
+
+
+LINK_LIBRARIES(protobuf)
+ADD_EXECUTABLE(test_sample_protobuf
+    ${CMAKE_SOURCE_DIR}/samples/sample_protobuf.cpp
+    ${CMAKE_SOURCE_DIR}/samples/addressbook.pb.cc)

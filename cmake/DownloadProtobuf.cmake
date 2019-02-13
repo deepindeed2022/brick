@@ -5,7 +5,7 @@ PROJECT(protobuf-download NONE)
 INCLUDE(ExternalProject)
 ExternalProject_Add(protobuf
 	GIT_REPOSITORY https://github.com/protocolbuffers/protobuf.git
-	GIT_TAG master
+	GIT_TAG v2.5.0
 	SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/protobuf"
 	BINARY_DIR "${CONFU_DEPENDENCIES_BINARY_DIR}/protobuf"
 	CONFIGURE_COMMAND ""
