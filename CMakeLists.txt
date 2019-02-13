@@ -7,6 +7,7 @@ PROJECT(libsfordev C CXX)
 SET(LIBSFORDEV_LIBRARY_TYPE "default" CACHE STRING "Type of library (shared, static, or default) to build")
 SET_PROPERTY(CACHE LIBSFORDEV_LIBRARY_TYPE PROPERTY STRINGS default static shared)
 OPTION(LIBSFORDEV_BUILD_TESTS "Build libsfordev unit tests" ON)
+# OPTION(LIBSFORDEV_DOWNLOAD_LIBS "Build libsfordev unit tests" OFF)
 
 # ---[ CMake options
 IF(LIBSFORDEV_BUILD_TESTS)
@@ -56,7 +57,7 @@ IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED ZLIB_SOURCE_DIR)
     EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" --build .
     WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/zlib-download")
     
-    SET(GOOGLETEST_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/zlib" CACHE STRING "Zlib source directory")
+    SET(ZLIB_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/zlib" CACHE STRING "Zlib source directory")
 ENDIF() 
 
 IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED PROTOBUF_SOURCE_DIR)
@@ -72,4 +73,12 @@ IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED PROTOBUF_SOURCE_DIR)
     SET(PROTOBUF_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/protobuf" CACHE STRING "Protobuf source directory")
 ENDIF()
 
-## TODO something to use 3rd-party libs
+# test zlib
+INCLUDE_DIRECTORIES(${ZLIB_SOURCE_DIR})
+LINK_LIBRARIES(z)
+FILE(GLOB samples ${CMAKE_SOURCE_DIR}/samples/*.cpp)
+FOREACH (sample ${samples})
+	STRING(REGEX MATCH "[^/]+$" zlib_sample_file ${sample})
+	STRING(REPLACE ".cpp" "" zlib_sample_basename ${zlib_sample_file})
+	ADD_EXECUTABLE(test_${zlib_sample_basename} ${sample})
+ENDFOREACH()
