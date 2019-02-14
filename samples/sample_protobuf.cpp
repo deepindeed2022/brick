@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "addressbook.pb.h"
+#include "protobuf/addressbook.pb.h"
 
 void PromptForAddress(tutorial::Person* person){
     std::cout << "Enter persion name:" << std::endl;

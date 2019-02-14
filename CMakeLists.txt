@@ -86,14 +86,28 @@ IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED BEARSSL_SOURCE_DIR)
     SET(BEARSSL_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/bearssl" CACHE STRING "Bearssl source directory")
 ENDIF()
 
+IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED CURL_SOURCE_DIR)
+    MESSAGE(STATUS "Downloading Curl to ${CONFU_DEPENDENCIES_SOURCE_DIR}/curl (define CURL_SOURCE_DIR to avoid it)")
+    CONFIGURE_FILE(cmake/DownloadCurl.cmake "${CONFU_DEPENDENCIES_BINARY_DIR}/curl-download/CMakeLists.txt")
+    
+    EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+    WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/curl-download")
+    
+    EXECUTE_PROCESS(COMMAND "${CMAKE_COMMAND}" --build .
+    WORKING_DIRECTORY "${CONFU_DEPENDENCIES_BINARY_DIR}/curl-download")
+    
+    SET(CURL_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/curl" CACHE STRING "Curl source directory")
+ENDIF()
+
 # test zlib
 INCLUDE_DIRECTORIES(${ZLIB_SOURCE_DIR})
-LINK_LIBRARIES(z)
-
 ADD_EXECUTABLE(test_sample_zlib ${CMAKE_SOURCE_DIR}/samples/sample_zlib.cpp)
+TARGET_LINK_LIBRARIES(test_sample_zlib z)
 
-
-LINK_LIBRARIES(protobuf)
 ADD_EXECUTABLE(test_sample_protobuf
-    ${CMAKE_SOURCE_DIR}/samples/sample_protobuf.cpp
-    ${CMAKE_SOURCE_DIR}/samples/addressbook.pb.cc)
+${CMAKE_SOURCE_DIR}/samples/sample_protobuf.cpp
+${CMAKE_SOURCE_DIR}/samples/protobuf/addressbook.pb.cc)
+TARGET_LINK_LIBRARIES(test_sample_protobuf protobuf)
+
+ADD_EXECUTABLE(test_sample_curl ${CMAKE_SOURCE_DIR}/samples/sample_curl.cpp)
+TARGET_LINK_LIBRARIES(test_sample_curl curl pthread)
