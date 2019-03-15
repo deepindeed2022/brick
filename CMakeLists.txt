@@ -111,3 +111,6 @@ TARGET_LINK_LIBRARIES(test_sample_protobuf protobuf)
 
 ADD_EXECUTABLE(test_sample_curl ${CMAKE_SOURCE_DIR}/samples/sample_curl.cpp)
 TARGET_LINK_LIBRARIES(test_sample_curl curl pthread)
+
+ADD_EXECUTABLE(test_sample_gflag ${CMAKE_SOURCE_DIR}/samples/sample_gflag.cpp)
+TARGET_LINK_LIBRARIES(test_sample_gflag gflags glog pthread)
