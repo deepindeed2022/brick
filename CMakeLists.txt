@@ -114,3 +114,6 @@ TARGET_LINK_LIBRARIES(test_sample_curl curl pthread)
 
 ADD_EXECUTABLE(test_sample_gflag ${CMAKE_SOURCE_DIR}/samples/sample_gflag.cpp)
 TARGET_LINK_LIBRARIES(test_sample_gflag gflags glog pthread)
+
+INCLUDE_DIRECTORIES(${CONFU_DEPENDENCIES_SOURCE_DIR}/eigen)
+ADD_EXECUTABLE(test_sample_eigen ${CMAKE_SOURCE_DIR}/samples/sample_eigen.cpp)
