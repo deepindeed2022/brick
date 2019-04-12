@@ -99,6 +99,14 @@ IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED CURL_SOURCE_DIR)
     SET(CURL_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/curl" CACHE STRING "Curl source directory")
 ENDIF()
 
+IF(LIBSFORDEV_BUILD_TESTS AND NOT DEFINED EIGEN_SOURCE_DIR)
+    MESSAGE(STATUS "Downloading Eigen to ${CONFU_DEPENDENCIES_SOURCE_DIR}/eigen (define EIGEN_SOURCE_DIR to avoid it)")
+    CONFIGURE_FILE(cmake/DownloadEigen.cmake "${CONFU_DEPENDENCIES_BINARY_DIR}/eigen-download/CMakeLists.txt")
+    
+    SET(EIGEN_SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/eigen" CACHE STRING "Eigen source directory")
+ENDIF()
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -O2")
 # test zlib
 INCLUDE_DIRECTORIES(${ZLIB_SOURCE_DIR})
 ADD_EXECUTABLE(test_sample_zlib ${CMAKE_SOURCE_DIR}/samples/sample_zlib.cpp)
@@ -115,5 +123,5 @@ TARGET_LINK_LIBRARIES(test_sample_curl curl pthread)
 ADD_EXECUTABLE(test_sample_gflag ${CMAKE_SOURCE_DIR}/samples/sample_gflag.cpp)
 TARGET_LINK_LIBRARIES(test_sample_gflag gflags glog pthread)
 
-INCLUDE_DIRECTORIES(${CONFU_DEPENDENCIES_SOURCE_DIR}/eigen)
+INCLUDE_DIRECTORIES(${EIGEN_SOURCE_DIR})
 ADD_EXECUTABLE(test_sample_eigen ${CMAKE_SOURCE_DIR}/samples/sample_eigen.cpp)
