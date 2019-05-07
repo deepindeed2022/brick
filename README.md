@@ -71,7 +71,14 @@ The API is extremely clean and expressive while feeling natural to C++ programme
 Implementing an algorithm on top of Eigen feels like just copying pseudocode.
 Eigen has good compiler support as we run our test suite against many compilers to guarantee reliability and work around any compiler bugs. Eigen also is standard C++98 and maintains very reasonable compilation times.
 
+## Vulkan
+https://www.khronos.org/files/vulkan11-reference-guide.pdf
 
+Vulkan® is a graphics and compute API consisting of procedures and functions to specify shader programs, compute kernels, objects, and operations involved in producing high-quality graphical images, specifically color images of three-dimensional objects. Vulkan is also a pipeline with programmable and state-driven fixed-function stages that are invoked by a set of specific drawing operations.
+
+Vulkan®是一种图形和计算API，由程序和函数组成，用于指定着色器程序、计算内核、对象和用于生成高质量图形图像(特别是三维对象的彩色图像)的操作。Vulkan也是由一组特定的绘图操作调用组成的，具有可编程和状态驱动的固定功能级的流水线。
+
+在Alibaba开源的MNN项目中就封装了该库。
 
 ## 联系方式
 
