@@ -1,3 +1,4 @@
+// the sample from Blog: http://blog.csdn.net/fengbingchun/article/details/72874623
 #include <cstdio>
 #include <cmath>
 #include <iostream>
