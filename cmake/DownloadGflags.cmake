@@ -1,0 +1,15 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
+
+PROJECT(gflags-download NONE)
+
+INCLUDE(ExternalProject)
+ExternalProject_Add(gflags
+	GIT_REPOSITORY https://github.com/gflags/gflags.git
+	GIT_TAG master
+	SOURCE_DIR "${CONFU_DEPENDENCIES_SOURCE_DIR}/gflags"
+	BINARY_DIR "${CONFU_DEPENDENCIES_BINARY_DIR}/gflags"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND ""
+	INSTALL_COMMAND ""
+	TEST_COMMAND ""
+)

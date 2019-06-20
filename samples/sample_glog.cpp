@@ -1,11 +1,11 @@
 #include <string>
 #include <iostream>
-#include "glog/logging.h"   // glog 头文件
-#include "glog/raw_logging.h"
+#include <glog/logging.h>   // glog 头文件
+#include <glog/raw_logging.h>
 
 int main(int argc, char** argv){
-    FLAGS_log_dir = "glogfile";   //设置log目录  没有指定则输出到控制台
-    // FLAGS_logtostderr = 1;  //输出到控制台
+    // FLAGS_log_dir = "glogfile";   //设置log目录  没有指定则输出到控制台
+    FLAGS_logtostderr = 1;  //输出到控制台
     // 初始化
     google::InitGoogleLogging(argv[0]);    
     //为不同级别的日志设置不同的文件basename。
