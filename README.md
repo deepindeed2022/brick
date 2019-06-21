@@ -70,6 +70,14 @@ The API is extremely clean and expressive while feeling natural to C++ programme
 Implementing an algorithm on top of Eigen feels like just copying pseudocode.
 Eigen has good compiler support as we run our test suite against many compilers to guarantee reliability and work around any compiler bugs. Eigen also is standard C++98 and maintains very reasonable compilation times.
 
+### opencv
+
+`https://github.com/cwlseu/recipes/blob/master/script/install-opencv.sh`
+
+### caffe
+
+`https://github.com/cwlseu/recipes/blob/master/script/install_caffe.sh`
+
 ### Vulkan
 https://www.khronos.org/files/vulkan11-reference-guide.pdf
 
