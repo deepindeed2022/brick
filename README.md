@@ -1,10 +1,13 @@
 # Brick
 
 ## Introduction
-As a developer, we will use a lot of 3rdparty libs for the open source community. 
-We have use a lot of 3rdparty libs from github, google developer community or official website.
 
-## libraries list
+As program developer, we could access a lot of free libraries from the open source community and reference as 3rdparty libs which come from github, google developer community or official website. 
+Especially the popularity of open source awareness in world including China, companies, open source organizations are hosting and maintaining projects in the community so that our fresh developers can enjoy the feast.
+
+> To build our new world on the shoulders of giants.
+
+## libraries
 
 ### gtest
 
@@ -78,14 +81,10 @@ Eigen has good compiler support as we run our test suite against many compilers 
 
 `https://github.com/cwlseu/recipes/blob/master/script/install_caffe.sh`
 
-### Vulkan
+<!-- ### Vulkan
 https://www.khronos.org/files/vulkan11-reference-guide.pdf
 
-Vulkan® is a graphics and compute API consisting of procedures and functions to specify shader programs, compute kernels, objects, and operations involved in producing high-quality graphical images, specifically color images of three-dimensional objects. Vulkan is also a pipeline with programmable and state-driven fixed-function stages that are invoked by a set of specific drawing operations.
-
-Vulkan®是一种图形和计算API，由程序和函数组成，用于指定着色器程序、计算内核、对象和用于生成高质量图形图像(特别是三维对象的彩色图像)的操作。Vulkan也是由一组特定的绘图操作调用组成的，具有可编程和状态驱动的固定功能级的流水线。
-
-在Alibaba开源的MNN项目中就封装了该库。
+Vulkan® is a graphics and compute API consisting of procedures and functions to specify shader programs, compute kernels, objects, and operations involved in producing high-quality graphical images, specifically color images of three-dimensional objects. Vulkan is also a pipeline with programmable and state-driven fixed-function stages that are invoked by a set of specific drawing operations. -->
 
 ## 中文介绍
 作为一名开发者，我们常常应用来自开源社区的第三方库来构建应用， 而这些开源应用就相当于构建应用的砖头，
