@@ -185,3 +185,11 @@ ADD_EXECUTABLE(test_sample_eigen ${CMAKE_SOURCE_DIR}/samples/sample_eigen.cpp)
 MESSAGE(STATUS "build glog sample")
 ADD_EXECUTABLE(test_sample_glog ${CMAKE_SOURCE_DIR}/samples/sample_glog.cpp)
 TARGET_LINK_LIBRARIES(test_sample_glog glog ${TARGET_OS_LINK_LIBS})
+
+# test c++ basic samples
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/samples/cppbasic CPP_BASIC_DEMO)
+FOREACH(sample_path ${CPP_BASIC_DEMO})
+	STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${sample_path})
+	ADD_EXECUTABLE(test_${FILE_NAME} ${sample_path})
+ENDFOREACH()
