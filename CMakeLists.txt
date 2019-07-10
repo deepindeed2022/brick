@@ -175,21 +175,27 @@ TARGET_LINK_LIBRARIES(test_sample_protobuf protobuf)
 ADD_EXECUTABLE(test_sample_curl ${CMAKE_SOURCE_DIR}/samples/sample_curl.cpp)
 TARGET_LINK_LIBRARIES(test_sample_curl curl ${TARGET_OS_LINK_LIBS})
 
-ADD_EXECUTABLE(test_sample_gflag ${CMAKE_SOURCE_DIR}/samples/sample_gflag.cpp)
-TARGET_LINK_LIBRARIES(test_sample_gflag gflags glog ${TARGET_OS_LINK_LIBS})
+# ADD_EXECUTABLE(test_sample_gflag ${CMAKE_SOURCE_DIR}/samples/sample_gflag.cpp)
+# TARGET_LINK_LIBRARIES(test_sample_gflag gflags glog ${TARGET_OS_LINK_LIBS})
 
 MESSAGE(STATUS "build eigen sample")
 ADD_EXECUTABLE(test_sample_eigen ${CMAKE_SOURCE_DIR}/samples/sample_eigen.cpp)
 
 # test glog
-MESSAGE(STATUS "build glog sample")
-ADD_EXECUTABLE(test_sample_glog ${CMAKE_SOURCE_DIR}/samples/sample_glog.cpp)
-TARGET_LINK_LIBRARIES(test_sample_glog glog ${TARGET_OS_LINK_LIBS})
+# MESSAGE(STATUS "build glog sample")
+# ADD_EXECUTABLE(test_sample_glog ${CMAKE_SOURCE_DIR}/samples/sample_glog.cpp)
+# TARGET_LINK_LIBRARIES(test_sample_glog glog ${TARGET_OS_LINK_LIBS})
 
 # test c++ basic samples
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/samples/cppbasic CPP_BASIC_DEMO)
 FOREACH(sample_path ${CPP_BASIC_DEMO})
+	STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${sample_path})
+	ADD_EXECUTABLE(test_${FILE_NAME} ${sample_path})
+ENDFOREACH()
+
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/demo DEMO_SRC)
+FOREACH(sample_path ${DEMO_SRC})
 	STRING(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${sample_path})
 	ADD_EXECUTABLE(test_${FILE_NAME} ${sample_path})
 ENDFOREACH()

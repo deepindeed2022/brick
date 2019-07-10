@@ -1,3 +1,6 @@
+#ifdef _MSC_VER
+#pragma execution_character_set("utf-8")
+#endif
 #include <string>
 #include <iostream>
 #include <utility>
@@ -12,21 +15,13 @@ std::pair<std::string, int> split_line(std::string& line) {
 	int label = int(line.substr(idx, idx+1)[0] - '0');
 	return {img_path, label};
 }
+
 std::string abs_path(std::string& path, std::string prefix="/home/xxxx/") {
 	return  prefix + path;
 }
 int main(int argc, char const *argv[]) {
-	
-	if(argc <= 1) {
-		std::cerr << "please input a file\n";
-		return -1;
-	}
     std::ifstream infile;
-    infile.open(argv[1], std::ios::in);
-    if(!infile.is_open()) {
-    	std::cerr << "open file failed" << std::endl;
-    	return -1;
- 	}
+    infile.open("/home/xxxx/test.txt", std::ios::in);
  	int c = 0;
  	std::string tmp;
  	std::pair<std::string, int> img_label;
