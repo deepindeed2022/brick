@@ -1,13 +1,13 @@
 # Brick
 
-## Introduction
+## INTRODUCTION
 
 As program developer, we could access a lot of free libraries from the open source community and reference as 3rdparty libs which come from github, google developer community or official website. 
 Especially the popularity of open source awareness in world including China, companies, open source organizations are hosting and maintaining projects in the community so that our fresh developers can enjoy the feast.
 
 > To build our new world on the shoulders of giants.
 
-## libraries
+## LIBRARIES
 
 ### gtest
 
@@ -81,10 +81,6 @@ Eigen has good compiler support as we run our test suite against many compilers 
 
 `https://github.com/cwlseu/recipes/blob/master/script/install_caffe.sh`
 
-<!-- ### Vulkan
-https://www.khronos.org/files/vulkan11-reference-guide.pdf
-
-Vulkan® is a graphics and compute API consisting of procedures and functions to specify shader programs, compute kernels, objects, and operations involved in producing high-quality graphical images, specifically color images of three-dimensional objects. Vulkan is also a pipeline with programmable and state-driven fixed-function stages that are invoked by a set of specific drawing operations. -->
 
 ## 中文介绍
 作为一名开发者，我们常常应用来自开源社区的第三方库来构建应用， 而这些开源应用就相当于构建应用的砖头，
@@ -95,10 +91,10 @@ Vulkan® is a graphics and compute API consisting of procedures and functions to
 - 基于cmake开发，可跨平台使用
 - 提供sample，快速上手
 
-### 编译
+### COMPILE & RUN
 
 `mkdir build && cd build && cmake .. && make -j4`
 
-## contact
+## CONTACT
 
 `echo Y2Fvd2VubG9uZzkyQGdtYWlsLmNvbQo= | base64 --decode`
