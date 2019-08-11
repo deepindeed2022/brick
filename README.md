@@ -22,31 +22,28 @@ data, such as digital image, raw text.
 
 Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
 
-### bearssl
+### bearssl[^1]
 BearSSL is an implementation of the SSL/TLS protocol (RFC 5246) written in C. 
-https://www.bearssl.org/index.html
 
-### libcurl - the multiprotocol file transfer library
+
+### libcurl[^2] - the multiprotocol file transfer library
 libcurl is a free and easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, Telnet and TFTP. libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
 
 libcurl is highly portable, it builds and works identically on numerous platforms, including Solaris, NetBSD, FreeBSD, OpenBSD, Darwin, HPUX, IRIX, AIX, Tru64, Linux, UnixWare, HURD, Windows, Amiga, OS/2, BeOs, Mac OS X, Ultrix, QNX, OpenVMS, RISC OS, Novell NetWare, DOS and more...
 
 libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies.
-https://curl.haxx.se/libcurl/
 
 ### glog & gflag
 C++ lite log lib `glog`
 
-install directly on os system:`sudo apt-get install libgflags-dev libgoogle-glog-dev`
+install directly on os system[^3]:`sudo apt-get install libgflags-dev libgoogle-glog-dev`
 
-[cnblog glog](http://www.cnblogs.com/tianyajuanke/archive/2013/02/22/2921850.html)
-
-### Eigen
+### Eigen[^4]
 Eigen is a high-level C++ library of template headers for linear algebra, matrix and vector operations, geometrical transformations, numerical solvers and related algorithms. Eigen is an open source library licensed under MPL2 starting from version 3.1.1. Earlier versions were licensed under LGPL3+.
 
 Eigen is implemented using the expression templates metaprogramming technique, meaning it builds expression trees at compile time and generates custom code to evaluate these. Using expression templates and a cost model of floating point operations, the library performs its own loop unrolling and vectorization.
 
-http://eigen.tuxfamily.org/index.php?title=Main_Page
+
 
 #### Eigen is versatile.
 
@@ -83,8 +80,7 @@ Eigen has good compiler support as we run our test suite against many compilers 
 
 
 ## 中文介绍
-作为一名开发者，我们常常应用来自开源社区的第三方库来构建应用， 而这些开源应用就相当于构建应用的砖头，
-无论多么宏伟的建筑物都是从这些砖头一点垒起来的。本项目中主要将日常开发中的使用的第三方库收集，整理，编写sample等等，方便用户快速入门。
+作为一名开发者，我们常常应用来自开源社区的第三方库来构建应用， 而这些开源应用就相当于构建房子的砖头，无论多么宏伟的建筑物都是从这些砖头一点垒起来的。本项目中主要将日常开发中的使用的第三方库整理，编写sample等等，方便用户快速入门。
 
 ### 特点
 - 依赖的库自动下载
@@ -98,3 +94,8 @@ Eigen has good compiler support as we run our test suite against many compilers 
 ## CONTACT
 
 `echo Y2Fvd2VubG9uZzkyQGdtYWlsLmNvbQo= | base64 --decode`
+
+[^1]: https://www.bearssl.org/index.html "bearssl社区官方下载地址"
+[^2]: https://curl.haxx.se/libcurl/ "libcurl官方下载地址"
+[^3]: http://www.cnblogs.com/tianyajuanke/archive/2013/02/22/2921850.html "glog cnblogs"
+[^4]: http://eigen.tuxfamily.org/index.php?title=Main_Page
