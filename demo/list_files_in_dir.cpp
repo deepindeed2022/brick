@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     }
     int count = 0;
     std::ofstream ferr;
-    ferr.open("license_run.log");
+    ferr.open("list_files_in_dir.log");
 
     std::cout << "-- start:" << dirname << "--"<<std::endl;
     while((dirp = readdir(dp)) != NULL) {
@@ -68,6 +68,6 @@ int main(int argc, char *argv[]) {
     }
 	closedir(dp);
     ferr.close();
-    std::cout << "-- license autogen json "<< dirname <<" total file number is " << count << std::endl;
+    std::cout << "-- list_files_in_dir:"<< dirname <<" total file number is " << count << std::endl;
 	return 0;
 }
