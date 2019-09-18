@@ -238,7 +238,7 @@ int test_norm()
      // 1. vector
      std::vector<float> vec1{-2, 3, 1};
      Eigen::VectorXf v(vec1.size());
-     for (int i = 0; i < vec1.size(); ++i)
+     for (size_t i = 0; i < vec1.size(); ++i)
      {
           v[i] = vec1[i];
      }
