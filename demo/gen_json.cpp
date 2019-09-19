@@ -44,8 +44,8 @@ json11::Json to_json(const IDCardImg& value);
 int main(int argc, char *argv[]) {
     std::string rawFilename = "1.jpg";
     std::ofstream ferr;
-    ferr.open("autogen_crop_idcard.log");
-    IDCardImg st_idcard = {
+    ferr.open("autogen_json.log");
+    IDCardImg idcard = {
         3,
         123,
         123,
@@ -56,13 +56,13 @@ int main(int argc, char *argv[]) {
         0,
         {}
     };
-    std::string id = st_idcard.id;
-    json11::Json st_idcard_json = to_json(st_idcard);
+    std::string id = idcard.id;
+    json11::Json idcard_json = to_json(idcard);
     std::ofstream json_out;
     std::string out_json_name = id + ".json";
     json_out.open(out_json_name, std::ios_base::out);
     std::string result;
-    st_idcard_json.dump(result);
+    idcard_json.dump(result);
     json_out << result << std::endl;
     json_out.close();
     return 0;

@@ -1,8 +1,11 @@
 #!/bin/sh
-
-# samples=$(find build  -name "test_sample_*") # 将找到的结果保存为一个数组需要加 ()
 cur_dir=$(pwd)
-cd build
+protoc --cpp_out=. ${cur_dir}/samples/protobuf/addressbook.proto
+
+if [[ ! -d ${cur_dir}/build ]]; then 
+    mkdir -p ${cur_dir}/build
+fi
+cd ${cur_dir}/build && cmake .. && make -j4
 echo "## start test gen_file_md5"
 ./test_get_file_md5
 
