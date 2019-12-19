@@ -74,10 +74,14 @@ Eigen has good compiler support as we run our test suite against many compilers 
 
 `https://github.com/cwlseu/recipes/blob/master/script/install-opencv.sh`
 
+some sample code at opencv_test
+
 ### caffe
 
 `https://github.com/cwlseu/recipes/blob/master/script/install_caffe.sh`
 
+### ThreadPool
+There are a lot version threadpool code in github.
 
 ## 中文介绍
 作为一名开发者，我们常常应用来自开源社区的第三方库来构建应用， 而这些开源应用就相当于构建房子的砖头，无论多么宏伟的建筑物都是从这些砖头一点垒起来的。本项目中主要将日常开发中的使用的第三方库整理，编写sample等等，方便用户快速入门。

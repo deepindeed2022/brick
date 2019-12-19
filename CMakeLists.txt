@@ -213,3 +213,6 @@ ENDFOREACH()
 
 TARGET_LINK_LIBRARIES(test_get_file_md5 curl crypto)
 TARGET_LINK_LIBRARIES(test_gen_json json11)
+
+# add opencv_test
+add_subdirectory(opencv_test)
