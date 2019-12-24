@@ -14,4 +14,5 @@ fi
 
 # test
 ./test_video_input_psnr_ssim test_image/Megamind.avi test_image/Megamind_bugy.avi  35 10
+./test_background_subtraction -input=test_image/Megamind.avi -algo KNN
 cd -
